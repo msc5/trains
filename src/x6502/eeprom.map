@@ -1,0 +1,35 @@
+No 'SYMBOLS' Directive in File : eeprom.obj
+
+
+Filename : eeprom.obj
+
+
+
+******************************************************************************
+*                      S E C T I O N      S U M M A R Y                      *
+******************************************************************************
+*    Section Name                  Start      End         Description        *
+******************************************************************************
+* CODE                              E000      FFFD                           *
+******************************************************************************
+
+
+******************************************************************************
+*                             L O A D      M A P                             *
+******************************************************************************
+*    Section Name              Starting Address    Ending Address    Size    *
+******************************************************************************
+* eeprom.obj                                                                 *
+*    CODE                            E000               E015         0016    *
+*                                    FFFC               FFFD         0002    *
+******************************************************************************
+
+
+                  Linker Output Filename : eeprom.hex
+                  Disk Listing  Filename : eeprom.map
+                  Debug Control Filename : eeprom.dcf
+                  Symbol Table  Filename : eeprom.sym
+                                Format   : 2500 A.D. High Level
+
+
+         Link Errors :  0                Output Format :  Intel Hex

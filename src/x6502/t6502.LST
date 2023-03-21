@@ -1,0 +1,847 @@
+  Tue Feb 28 15:23:06 2023                                                                                               Page    1
+
+
+
+
+
+
+
+          2500 A.D. 6502 Macro Assembler #26918 - Version 5.05g
+          -----------------------------------------------------
+
+                       Input  Filename : C:\WIDE\X6502\t6502.asm
+                       Output Filename : C:\WIDE\X6502\t6502.obj
+                                                                                
+
+
+    1                     			;.SYNTAX		6502
+    2                     			.LINKLIST
+    3                     			.SYMBOLS
+    4                     	;		.EXTERNAL	DATA8,ADDRESS
+    5                     	
+    6         00AB        	DATA8:		.EQUAL ABH      
+    7  0000                 			.BLKB	10
+    8  000A                 	ADDRESS:	 
+    9                     			PAGE0
+   10         00B2        	DD:		VAR	<LABEL    ;ADDRESS
+   11                     			CODE
+   12  000A     A9 0C       	LDA:		LDA	#12
+   13  000C     A9 12       			LDA	#$12
+   14  000E     A9 AB       			LDA	#DATA8
+   15  0010     A5 0C       			LDA	12
+   16  0012     A5 12       			LDA	$12
+   17  0014     A5 AB       			LDA	DATA8
+   18  0016     B5 0C       			LDA	12,X
+   19  0018     B5 12       			LDA	$12,X
+   20  001A     B5 AB       			LDA	DATA8,X
+   21  001C     A1 0C       			LDA	(12,X)
+   22  001E     A1 12       			LDA	($12,X)
+   23  0020     A1 AB       			LDA	(DATA8,X)
+   24  0022     B1 0C       			LDA	(12),Y
+   25  0024     B1 12       			LDA	($12),Y
+   26  0026     B1 AB       			LDA	(DATA8),Y
+   27  0028     AD D2 04    			LDA	1234
+   28  002B     AD 34 12    			LDA	$1234
+   29  002E     AD 0A 00    			LDA	ADDRESS
+   30  0031     BD D2 04    			LDA	1234,X
+   31  0034     BD 34 12    			LDA	$1234,X
+   32  0037     BD 0A 00    			LDA	ADDRESS,X
+   33  003A     B9 D2 04    			LDA	1234,Y
+   34  003D     B9 34 12    			LDA	$1234,Y
+   35  0040     B9 0A 00    			LDA	ADDRESS,Y
+   36                     			list on
+   37  0043     85 0C       	STA:		STA	12
+   38  0045     85 12       			STA	$12
+   39  0047     85 AB       			STA	DATA8
+   40  0049     95 0C       			STA	12,X
+   41  004B     95 12       			STA	$12,X
+   42  004D     95 AB       			STA	DATA8,X
+   43  004F     81 0C       			STA	(12,X)
+   44  0051     81 12       			STA	($12,X)
+   45  0053     81 AB       			STA	(DATA8,X)
+   46  0055     91 0C       			STA	(12),Y
+  Tue Feb 28 15:23:06 2023                                                                                               Page    2
+
+
+
+
+   47  0057     91 12       			STA	($12),Y
+   48  0059     91 AB       			STA	(DATA8),Y
+   49  005B     8D D2 04    			STA	1234
+   50  005E     8D 34 12    			STA	$1234
+   51  0061     8D 0A 00    			STA	ADDRESS
+   52  0064     9D D2 04    			STA	1234,X
+   53  0067     9D 34 12    			STA	$1234,X
+   54  006A     9D 0A 00    			STA	ADDRESS,X
+   55  006D     99 D2 04    			STA	1234,Y
+   56  0070     99 34 12    			STA	$1234,Y
+   57  0073     99 0A 00    			STA	ADDRESS,Y
+   58                     	
+   59  0076     A2 0C       	LDX:		LDX	#12
+   60  0078     A2 12       			LDX	#$12
+   61  007A     A2 AB       			LDX	#DATA8
+   62  007C     A6 0C       			LDX	12
+   63  007E     A6 12       			LDX	$12
+   64  0080     A6 AB       			LDX	DATA8
+   65  0082     B6 0C       			LDX	12,Y
+   66  0084     B6 12       			LDX	$12,Y
+   67  0086     B6 AB       			LDX	DATA8,Y
+   68  0088     AE D2 04    			LDX	1234
+   69  008B     AE 34 12    			LDX	$1234
+   70  008E     AE 0A 00    			LDX	ADDRESS
+   71  0091     BE D2 04    			LDX	1234,Y
+   72  0094     BE 34 12    			LDX	$1234,Y
+   73  0097     BE 0A 00    			LDX	ADDRESS,Y
+   74                     	
+   75  009A     86 0C       	STX:		STX	12
+   76  009C     86 12       			STX	$12
+   77  009E     86 AB       			STX	DATA8
+   78  00A0     96 0C       			STX	12,Y
+   79  00A2     96 12       			STX	$12,Y
+   80                     	;	STX	DATA8,Y
+   81                     	;	STX	ADDRESS,Y
+   82  00A4     8E D2 04    			STX	1234
+   83  00A7     8E 34 12    			STX	$1234
+   84  00AA     8E 0A 00    			STX	ADDRESS
+   85                     	
+   86  00AD     A0 0C       	LDY:		LDY	#12
+   87  00AF     A0 12       			LDY	#$12
+   88  00B1     A0 AB       			LDY	#DATA8
+   89  00B3     A4 0C       			LDY	12
+   90  00B5     A4 12       			LDY	$12
+   91  00B7     A4 AB       			LDY	DATA8
+   92  00B9     B4 0C       			LDY	12,X
+   93  00BB     B4 12       			LDY	$12,X
+   94  00BD     B4 AB       			LDY	DATA8,X
+   95  00BF     AC D2 04    			LDY	1234
+   96  00C2     AC 34 12    			LDY	$1234
+   97  00C5     AC 0A 00    			LDY	ADDRESS
+   98  00C8     BC D2 04    			LDY	1234,X
+   99  00CB     BC 34 12    			LDY	$1234,X
+  100  00CE     BC 0A 00    			LDY	ADDRESS,X
+  101                     	
+  102  00D1     84 0C       	STY:		STY	12
+  103  00D3     84 12       			STY	$12
+  Tue Feb 28 15:23:06 2023                                                                                               Page    3
+
+
+
+
+  104  00D5     84 AB       			STY	DATA8
+  105  00D7     94 0C       			STY	12,X
+  106  00D9     94 12       			STY	$12,X
+  107  00DB     94 AB       			STY	DATA8,X
+  108  00DD     94 B2       			STY	DD,X
+  109  00DF     8C D2 04    			STY	1234
+  110  00E2     8C 34 12    			STY	$1234
+  111  00E5     8C 0A 00    			STY	ADDRESS
+  112                     	
+  113  00E8     69 0C       	ADC:		ADC	#12
+  114  00EA     69 12       			ADC	#$12
+  115  00EC     69 AB       			ADC	#DATA8
+  116  00EE     65 0C       			ADC	12
+  117  00F0     65 12       			ADC	$12
+  118  00F2     65 AB       			ADC	DATA8
+  119  00F4     75 0C       			ADC	12,X
+  120  00F6     75 12       			ADC	$12,X
+  121  00F8     75 AB       			ADC	DATA8,X
+  122  00FA     61 0C       			ADC	(12,X)
+  123  00FC     61 12       			ADC	($12,X)
+  124  00FE     61 AB       			ADC	(DATA8,X)
+  125  0100     71 0C       			ADC	(12),Y
+  126  0102     71 12       			ADC	($12),Y
+  127  0104     71 AB       			ADC	(DATA8),Y
+  128  0106     6D D2 04    			ADC	1234
+  129  0109     6D 34 12    			ADC	$1234
+  130  010C     6D 0A 00    			ADC	ADDRESS
+  131  010F     7D D2 04    			ADC	1234,X
+  132  0112     7D 34 12    			ADC	$1234,X
+  133  0115     7D 0A 00    			ADC	ADDRESS,X
+  134  0118     79 D2 04    			ADC	1234,Y
+  135  011B     79 34 12    			ADC	$1234,Y
+  136  011E     79 0A 00    			ADC	ADDRESS,Y
+  137                     	
+  138  0121     29 0C       	AND:		AND	#12
+  139  0123     29 12       			AND	#$12
+  140  0125     29 AB       			AND	#DATA8
+  141  0127     25 0C       			AND	12
+  142  0129     25 12       			AND	$12
+  143  012B     25 AB       			AND	DATA8
+  144  012D     35 0C       			AND	12,X
+  145  012F     35 12       			AND	$12,X
+  146  0131     35 AB       			AND	DATA8,X
+  147  0133     21 0C       			AND	(12,X)
+  148  0135     21 12       			AND	($12,X)
+  149  0137     21 AB       			AND	(DATA8,X)
+  150  0139     31 0C       			AND	(12),Y
+  151  013B     31 12       			AND	($12),Y
+  152  013D     31 AB       			AND	(DATA8),Y
+  153  013F     2D D2 04    			AND	1234
+  154  0142     2D 34 12    			AND	$1234
+  155  0145     2D 0A 00    			AND	ADDRESS
+  156  0148     3D D2 04    			AND	1234,X
+  157  014B     3D 34 12    			AND	$1234,X
+  158  014E     3D 0A 00    			AND	ADDRESS,X
+  159  0151     39 D2 04    			AND	1234,Y
+  160  0154     39 34 12    			AND	$1234,Y
+  Tue Feb 28 15:23:06 2023                                                                                               Page    4
+
+
+
+
+  161  0157     39 0A 00    			AND	ADDRESS,Y
+  162                     	
+  163  015A     24 0C       	BIT:		BIT	12
+  164  015C     24 12       			BIT	$12
+  165  015E     24 AB       			BIT	DATA8
+  166  0160     2C D2 04    			BIT	1234
+  167  0163     2C 34 12    			BIT	$1234
+  168  0166     2C 0A 00    			BIT	ADDRESS
+  169                     	
+  170  0169     C9 0C       	CMP:		CMP	#12
+  171  016B     C9 12       			CMP	#$12
+  172  016D     C9 AB       			CMP	#DATA8
+  173  016F     C5 0C       			CMP	12
+  174  0171     C5 12       			CMP	$12
+  175  0173     C5 AB       			CMP	DATA8
+  176  0175     D5 0C       			CMP	12,X
+  177  0177     D5 12       			CMP	$12,X
+  178  0179     D5 AB       			CMP	DATA8,X
+  179  017B     C1 0C       			CMP	(12,X)
+  180  017D     C1 12       			CMP	($12,X)
+  181  017F     C1 AB       			CMP	(DATA8,X)
+  182  0181     D1 0C       			CMP	(12),Y
+  183  0183     D1 12       			CMP	($12),Y
+  184  0185     D1 AB       			CMP	(DATA8),Y
+  185  0187     CD D2 04    			CMP	1234
+  186  018A     CD 34 12    			CMP	$1234
+  187  018D     CD 0A 00    			CMP	ADDRESS
+  188  0190     DD D2 04    			CMP	1234,X
+  189  0193     DD 34 12    			CMP	$1234,X
+  190  0196     DD 0A 00    			CMP	ADDRESS,X
+  191  0199     D9 D2 04    			CMP	1234,Y
+  192  019C     D9 34 12    			CMP	$1234,Y
+  193  019F     D9 0A 00    			CMP	ADDRESS,Y
+  194                     	
+  195  01A2     49 0C       	EOR:		EOR	#12
+  196  01A4     49 12       			EOR	#$12
+  197  01A6     49 AB       			EOR	#DATA8
+  198  01A8     45 0C       			EOR	12
+  199  01AA     45 12       			EOR	$12
+  200  01AC     45 AB       			EOR	DATA8
+  201  01AE     55 0C       			EOR	12,X
+  202  01B0     55 12       			EOR	$12,X
+  203  01B2     55 AB       			EOR	DATA8,X
+  204  01B4     41 0C       			EOR	(12,X)
+  205  01B6     41 12       			EOR	($12,X)
+  206  01B8     41 AB       			EOR	(DATA8,X)
+  207  01BA     51 0C       			EOR	(12),Y
+  208  01BC     51 12       			EOR	($12),Y
+  209  01BE     51 AB       			EOR	(DATA8),Y
+  210  01C0     4D D2 04    			EOR	1234
+  211  01C3     4D 34 12    			EOR	$1234
+  212  01C6     4D 0A 00    			EOR	ADDRESS
+  213  01C9     5D D2 04    			EOR	1234,X
+  214  01CC     5D 34 12    			EOR	$1234,X
+  215  01CF     5D 0A 00    			EOR	ADDRESS,X
+  216  01D2     59 D2 04    			EOR	1234,Y
+  217  01D5     59 34 12    			EOR	$1234,Y
+  Tue Feb 28 15:23:06 2023                                                                                               Page    5
+
+
+
+
+  218  01D8     59 0A 00    			EOR	ADDRESS,Y
+  219                     	
+  220  01DB     09 0C       	ORA:		ORA	#12
+  221  01DD     09 12       			ORA	#$12
+  222  01DF     09 AB       			ORA	#DATA8
+  223  01E1     05 0C       			ORA	12
+  224  01E3     05 12       			ORA	$12
+  225  01E5     05 AB       			ORA	DATA8
+  226  01E7     15 0C       			ORA	12,X
+  227  01E9     15 12       			ORA	$12,X
+  228  01EB     15 AB       			ORA	DATA8,X
+  229  01ED     01 0C       			ORA	(12,X)
+  230  01EF     01 12       			ORA	($12,X)
+  231  01F1     01 AB       			ORA	(DATA8,X)
+  232  01F3     11 0C       			ORA	(12),Y
+  233  01F5     11 12       			ORA	($12),Y
+  234  01F7     11 AB       			ORA	(DATA8),Y
+  235  01F9     0D D2 04    			ORA	1234
+  236  01FC     0D 34 12    			ORA	$1234
+  237  01FF     0D 0A 00    			ORA	ADDRESS
+  238  0202     1D D2 04    			ORA	1234,X
+  239  0205     1D 34 12    			ORA	$1234,X
+  240  0208     1D 0A 00    			ORA	ADDRESS,X
+  241  020B     19 D2 04    			ORA	1234,Y
+  242  020E     19 34 12    			ORA	$1234,Y
+  243  0211     19 0A 00    			ORA	ADDRESS,Y
+  244                     	
+  245  0214     E9 0C       	SBC:		SBC	#12
+  246  0216     E9 12       			SBC	#$12
+  247  0218     E9 AB       			SBC	#DATA8
+  248  021A     E5 0C       			SBC	12
+  249  021C     E5 12       			SBC	$12
+  250  021E     E5 AB       			SBC	DATA8
+  251  0220     F5 0C       			SBC	12,X
+  252  0222     F5 12       			SBC	$12,X
+  253  0224     F5 AB       			SBC	DATA8,X
+  254  0226     E1 0C       			SBC	(12,X)
+  255  0228     E1 12       			SBC	($12,X)
+  256  022A     E1 AB       			SBC	(DATA8,X)
+  257  022C     F1 0C       			SBC	(12),Y
+  258  022E     F1 12       			SBC	($12),Y
+  259  0230     F1 AB       			SBC	(DATA8),Y
+  260  0232     ED D2 04    			SBC	1234
+  261  0235     ED 34 12    			SBC	$1234
+  262  0238     ED 0A 00    			SBC	ADDRESS
+  263  023B     FD D2 04    			SBC	1234,X
+  264  023E     FD 34 12    			SBC	$1234,X
+  265  0241     FD 0A 00    			SBC	ADDRESS,X
+  266  0244     F9 D2 04    			SBC	1234,Y
+  267  0247     F9 34 12    			SBC	$1234,Y
+  268  024A     F9 0A 00    			SBC	ADDRESS,Y
+  269                     	
+  270  024D     E6 0C       	INC:		INC	12
+  271  024F     E6 12       			INC	$12
+  272  0251     E6 AB       			INC	DATA8
+  273  0253     F6 0C       			INC	12,X
+  274  0255     F6 12       			INC	$12,X
+  Tue Feb 28 15:23:06 2023                                                                                               Page    6
+
+
+
+
+  275  0257     F6 AB       			INC	DATA8,X
+  276  0259     EE D2 04    			INC	1234
+  277  025C     EE 34 12    			INC	$1234
+  278  025F     EE 0A 00    			INC	ADDRESS
+  279  0262     FE D2 04    			INC	1234,X
+  280  0265     FE 34 12    			INC	$1234,X
+  281  0268     FE 0A 00    			INC	ADDRESS,X
+  282                     	
+  283  026B     C6 0C       	DEC:		DEC	12
+  284  026D     C6 12       			DEC	$12
+  285  026F     C6 AB       			DEC	DATA8
+  286  0271     D6 0C       			DEC	12,X
+  287  0273     D6 12       			DEC	$12,X
+  288  0275     D6 AB       			DEC	DATA8,X
+  289  0277     CE D2 04    			DEC	1234
+  290  027A     CE 34 12    			DEC	$1234
+  291  027D     CE 0A 00    			DEC	ADDRESS
+  292  0280     DE D2 04    			DEC	1234,X
+  293  0283     DE 24 13    			DEC	$1324,X
+  294  0286     DE 0A 00    			DEC	ADDRESS,X
+  295                     	
+  296  0289     E4 0C       	CPX:		CPX	12
+  297  028B     E4 12       			CPX	$12
+  298  028D     E4 AB       			CPX	DATA8
+  299  028F     EC D2 04    			CPX	1234
+  300  0292     EC 34 12    			CPX	$1234
+  301  0295     EC 0A 00    			CPX	ADDRESS
+  302                     	
+  303  0298     C4 0C       	CPY:		CPY	12
+  304  029A     C4 12       			CPY	$12
+  305  029C     C4 AB       			CPY	DATA8
+  306  029E     CC D2 04    			CPY	1234
+  307  02A1     CC 34 12    			CPY	$1234
+  308  02A4     CC 0A 00    			CPY	ADDRESS
+  309                     	
+  310  02A7     2A          	ROL:		ROL	A
+  311  02A8     26 0C       			ROL	12
+  312  02AA     26 12       			ROL	$12
+  313  02AC     26 AB       			ROL	DATA8
+  314  02AE     36 0C       			ROL	12,X
+  315  02B0     36 12       			ROL	$12,X
+  316  02B2     36 AB       			ROL	DATA8,X
+  317  02B4     2E D2 04    			ROL	1234
+  318  02B7     2E 34 12    			ROL	$1234
+  319  02BA     2E 0A 00    			ROL	ADDRESS
+  320  02BD     3E D2 04    			ROL	1234,X
+  321  02C0     3E 34 12    			ROL	$1234,X
+  322  02C3     3E 0A 00    			ROL	ADDRESS,X
+  323                     	
+  324  02C6     6A          	ROR:		ROR	A
+  325  02C7     66 0C       			ROR	12
+  326  02C9     66 12       			ROR	$12
+  327  02CB     66 AB       			ROR	DATA8
+  328  02CD     76 0C       			ROR	12,X
+  329  02CF     76 12       			ROR	$12,X
+  330  02D1     76 AB       			ROR	DATA8,X
+  331  02D3     6E D2 04    			ROR	1234
+  Tue Feb 28 15:23:06 2023                                                                                               Page    7
+
+
+
+
+  332  02D6     6E 34 12    			ROR	$1234
+  333  02D9     6E 0A 00    			ROR	ADDRESS
+  334  02DC     7E D2 04    			ROR	1234,X
+  335  02DF     7E 34 12    			ROR	$1234,X
+  336  02E2     7E 0A 00    			ROR	ADDRESS,X
+  337                     	
+  338  02E5     0A          	ASL:		ASL	A
+  339  02E6     06 0C       			ASL	12
+  340  02E8     06 12       			ASL	$12
+  341  02EA     06 AB       			ASL	DATA8
+  342  02EC     16 0C       			ASL	12,X
+  343  02EE     16 12       			ASL	$12,X
+  344  02F0     16 AB       			ASL	DATA8,X
+  345  02F2     0E D2 04    			ASL	1234
+  346  02F5     0E 34 12    			ASL	$1234
+  347  02F8     0E 0A 00    			ASL	ADDRESS
+  348  02FB     1E D2 04    			ASL	1234,X
+  349  02FE     1E 34 12    			ASL	$1234,X
+  350  0301     1E 0A 00    			ASL	ADDRESS,X
+  351                     	
+  352  0304     4A          	LSR:		LSR	A
+  353  0305     46 0C       			LSR	12
+  354  0307     46 12       			LSR	$12
+  355  0309     46 AB       			LSR	DATA8
+  356  030B     56 0C       			LSR	12,X
+  357  030D     56 12       			LSR	$12,X
+  358  030F     56 AB       			LSR	DATA8,X
+  359  0311     4E D2 04    			LSR	1234
+  360  0314     4E 34 12    			LSR	$1234
+  361  0317     4E 0A 00    			LSR	ADDRESS
+  362  031A     5E D2 04    			LSR	1234,X
+  363  031D     5E 34 12    			LSR	$1234,X
+  364  0320     5E 0A 00    			LSR	ADDRESS,X
+  365                     	
+  366  0323     4C 0C 00    	JMP:		JMP	12
+  367  0326     4C 12 00    			JMP	$12
+  368  0329     4C AB 00    			JMP	DATA8
+  369  032C     4C D2 04    			JMP	1234
+  370  032F     4C 34 12    			JMP	$1234
+  371  0332     4C 0A 00    			JMP	ADDRESS
+  372  0335     6C 0C 00    			JMP	(12)
+  373  0338     6C 12 00    			JMP	($12)
+  374  033B     6C AB 00    			JMP	(DATA8)
+  375  033E     6C D2 04    			JMP	(1234)
+  376  0341     6C 34 12    			JMP	($1234)
+  377  0344     6C 0A 00    			JMP	(ADDRESS)
+  378                     	
+  379  0347     90 0C       	BCC:		BCC	12
+  380  0349     90 12       			BCC	$12
+  381  034B     90 FA       			BCC	BCC
+  382                     	
+  383  034D     B0 0C       	BCS:		BCS	12
+  384  034F     B0 12       			BCS	$12
+  385  0351     B0 F4       			BCS	BCC
+  386                     	
+  387  0353     F0 0C       	BEQ:		BEQ	12
+  388  0355     F0 12       			BEQ	$12
+  Tue Feb 28 15:23:06 2023                                                                                               Page    8
+
+
+
+
+  389  0357     F0 EE       			BEQ	BCC
+  390                     	
+  391  0359     30 0C       	BMI:		BMI	12
+  392  035B     30 12       			BMI	$12
+  393  035D     30 E8       			BMI	BCC
+  394                     	
+  395  035F     D0 0C       	BNE:		BNE	12
+  396  0361     D0 12       			BNE	$12
+  397  0363     D0 E2       			BNE	BCC
+  398                     	
+  399  0365     10 0C       	BPL:		BPL	12
+  400  0367     10 12       			BPL	$12
+  401  0369     10 DC       			BPL	BCC
+  402                     	
+  403  036B     50 0C       	BVC:		BVC	12
+  404  036D     50 12       			BVC	$12
+  405  036F     50 D6       			BVC	BCC
+  406                     	
+  407  0371     70 0C       	BVS:		BVS	12
+  408  0373     70 12       			BVS	$12
+  409  0375     70 D0       			BVS	BCC
+  410                     	
+  411  0377     20 0C 00    	JSR:		JSR	12
+  412  037A     20 12 00    			JSR	$12
+  413  037D     20 0A 00    			JSR	ADDRESS
+  414                     	
+  415  0380     60          	RTS:		RTS
+  416                     	
+  417  0381     60          			RTS			COMMENT TEST
+  418                     	
+  419  0382     AA          	TAX:		TAX
+  420  0383     AA          			TAX			COMMENT TEST
+  421                     	
+  422  0384     8A          	TXA:		TXA
+  423  0385     8A          			TXA			CT
+  424                     	
+  425  0386     A8          	TAY:		TAY
+  426  0387     A8          			TAY			CT
+  427                     	
+  428  0388     98          	TYA:		TYA
+  429  0389     98          			TYA			CT
+  430                     	
+  431  038A     BA          	TSX:		TSX
+  432  038B     BA          			TSX			CT
+  433                     	
+  434  038C     9A          	TXS:		TXS
+  435  038D     9A          			TXS			CT
+  436                     	
+  437  038E     CA          	DEX:		DEX
+  438  038F     CA          			DEX			CT
+  439                     	
+  440  0390     88          	DEY:		DEY
+  441  0391     88          			DEY			CT
+  442                     	
+  443  0392     E8          	INX:		INX
+  444  0393     E8          			INX			CT
+  445                     	
+  Tue Feb 28 15:23:06 2023                                                                                               Page    9
+
+
+
+
+  446  0394     C8          	INY:		INY
+  447  0395     C8          			INY			CT
+  448                     	
+  449  0396     48          	PHA:		PHA
+  450  0397     48          			PHA			CT
+  451                     	
+  452  0398     68          	PLA:		PLA
+  453  0399     68          			PLA			CT
+  454                     	
+  455  039A     08          	PHP:		PHP
+  456  039B     08          			PHP			CT
+  457                     	
+  458  039C     28          	PLP:		PLP
+  459  039D     28          			PLP			CT
+  460                     	
+  461  039E     58          	CLI:		CLI
+  462  039F     58          			CLI			CT
+  463                     	
+  464  03A0     78          	SEI:		SEI
+  465  03A1     78          			SEI			CT
+  466                     	
+  467  03A2     40          	RTI:		RTI
+  468  03A3     40          			RTI			CT
+  469                     	
+  470  03A4     00 EA       	BRK:		BRK
+  471                     	
+  472  03A6     18          	CLC:		CLC
+  473  03A7     18          			CLC			CT
+  474                     	
+  475  03A8     38          	SEC:		SEC
+  476  03A9     38          			SEC			CT
+  477                     	
+  478  03AA     D8          	CLD:		CLD
+  479  03AB     D8          			CLD			CT
+  480                     	
+  481  03AC     F8          	SED:		SED
+  482  03AD     F8          			SED			CT
+  483                     	
+  484  03AE     B8          	CLV:		CLV
+  485  03AF     B8          			CLV			CT
+  486                     	
+  487  03B0     EA          	NOP:		NOP
+  488  03B1     EA          			NOP			CT
+  489                     	
+  490  03B2                 	LABEL
+  491  03B2                 			INCLUDE mac.asm
+  492                     			maclist	off
+  493                     	DIRASC		.MACRO
+  494                     	DSC0		.VAR	0
+  495                     	DSC0		.VAR	1
+  496                     			.ENDM
+  497                     	
+  498  03B2                 			DIRASC
+  499  03B2     EA          			NOP
+  500         03B3        	GETKY0		.EQU	*
+  501  03B3     EA          			NOP
+  502                     			maclist	on
+  Tue Feb 28 15:23:06 2023                                                                                               Page   10
+
+
+
+
+  503                     	
+  504                     	;		CONCAT MACROS 
+  505  03B4                 	label:
+  506                     	concat		.macro	arg
+  507                     	mac_value:	.var	mac_value+1
+  508                     	arg|<mac_value>	.equ	31
+  509                     			endm
+  510         0000        	mac_value	.var	0
+  511  03B4                 			concat	label
+  512         0001        	mac_value:	.var	mac_value+1
+  513         001F        	label1	.equ	31
+  514  03B4                 			endm
+  515                     	
+  516                     	
+  517                     	;		STRING COMPARISONS
+  518                     	
+  519                     	cmp_string:	.macro	arg1
+  520                     			ifnma	1
+  521                     			exit	"cmp_string Needs an Argument"
+  522                     			macexit
+  523                     			endif
+  524                     			ifsame	"January",arg1
+  525                     	Month		byte	1
+  526                     			macexit
+  527                     			endif
+  528                     			ifsame	"February",arg1
+  529                     	Month		byte	2
+  530                     			macexit
+  531                     			endif
+  532                     			ifsame	"March",arg1
+  533                     	Month		byte	3
+  534                     			macexit
+  535                     			endif
+  536                     			ifsame	"April",arg1
+  537                     	Month		byte	4
+  538                     			macexit
+  539                     			endif
+  540                     			ifsame	"May",arg1
+  541                     	Month		byte	5
+  542                     			macexit
+  543                     			endif
+  544                     			ifsame	"June",arg1
+  545                     	Month		byte	6
+  546                     			macexit
+  547                     			endif
+  548                     			exit	"argument error in macro string"
+  549                     			endm
+  550  03B4                 			cmp_string	"April"
+  551         [01]        			ifnma	1
+  552                     			exit	"cmp_string Needs an Argument"
+  553                     			macexit
+  554         [00]        			endif
+  555         [01]        			ifsame	"January","April"
+  556                     	Month		byte	1
+  557                     			macexit
+  558         [00]        			endif
+  559         [01]        			ifsame	"February","April"
+  Tue Feb 28 15:23:06 2023                                                                                               Page   11
+
+
+
+
+  560                     	Month		byte	2
+  561                     			macexit
+  562         [00]        			endif
+  563         [01]        			ifsame	"March","April"
+  564                     	Month		byte	3
+  565                     			macexit
+  566         [00]        			endif
+  567         [01]        			ifsame	"April","April"
+  568  03B4     04          	Month		byte	4
+  569  03B5     [00]        			macexit
+  570                     	
+  571                     	
+  572                     	;		ARGUMENT SUBSTITUTION IN AN OPERAND FIELD
+  573                     	
+  574                     	Employee_Info1:	.macro	arg1,arg2,arg3
+  575                     	Name:		.db	arg1
+  576                     	Department:	.ascii	arg2
+  577                     	Date_hired:	.long	arg3
+  578                     			.endm
+  579  03B5                 			Employee_Info1	"John Doe",personal,101085
+  580  03B5     4A 6F 68 6E 20 	Name:		.db	"John Doe"
+              44 6F 65 
+  581  03BD     70 65 72 73 6F 	Department:	.ascii	personal
+              6E 61 6C 
+  582  03C5     DD8A 0100   	Date_hired:	.long	101085
+  583  03C9                 			.endm
+  584                     	
+  585                     	;		PASSING ARGUMENTS INTO LABEL FIELDS
+  586                     	
+  587                     	Employee_Info2:	.macro	arg1,arg2,arg3
+  588                     	arg1:		.ds	30h
+  589                     	arg2:		.ds	10h
+  590                     	arg3:		.long
+  591                     			.endm
+  592  03C9                 			Employee_Info2	name,department,date_hired
+  593  03C9                 	name:		.ds	30h
+  594  03F9                 	department:		.ds	10h
+  595  0409     0000 0000   	date_hired:		.long
+  596  040D                 			.endm
+  597                     	
+  598                     	;	SUBSTITUTING IN TO THE MNEMONIC FIELD
+  599  040D                 		
+  600                     	instruction:	.macro	arg,val
+  601                     			arg
+  602                     	lab#:		.ds	val
+  603                     			.macend
+  604  040D                 			instruction 	nop,7
+  605  040D     EA          			nop
+  606  040E                 	lab0006:		.ds	7
+  607  0415                 			.macend
+  608                     	
+  609                     	;	REDEFINING THE MNEMONIC	
+  610                     	
+  611                     			.macfirst on
+  612                     	
+  613                     	nop:		.macro	arg	
+  614                     			.db	arg
+  Tue Feb 28 15:23:06 2023                                                                                               Page   12
+
+
+
+
+  615                     			.endm
+  616  0415                 			nop	ffh
+  617  0415     FF          			.db	ffh
+  618  0416                 			.endm
+  619                     			.macfirst off
+  620                     	
+  621                     	;	PASSING COMMAS INTO A MACRO
+  622  0416                 		
+  623                     			macdelim	{
+  624                     	delim_ex1:	macro		arg1,arg2
+  625                     			byte		ffh,arg1 arg2
+  626                     			endm
+  627  0416                 			delim_ex1	{a4h},{,12h}
+  628  0416     FF A4       			byte		ffh,a4h ,12h
+  629  0418                 			endm
+  630                     	
+  631                     			macdelim	[
+  632                     	delim_ex2:	macro		arg1
+  633                     			byte		ffh arg1
+  634                     			endm
+  635  0418                 			delim_ex2	[,a4h]
+  636  0418     FF          			byte		ffh ,a4h
+  637  0419                 			endm
+  638                     	
+  639                     			macdelim	(
+  640                     	delim_ex3:	macro		arg1
+  641                     			byte		ffh arg1
+  642                     			endm
+  643  0419                 			delim_ex3	(,a4h)
+  644  0419     FF          			byte		ffh ,a4h
+  645  041A                 			endm
+  646                     	
+  647                     	;		MACRO RECURSION
+  648                     	
+  649                     	reserve:	.macro		arg1,arg2,arg3,arg4,arg5
+  650                     	count:		.var		arg1
+  651                     			.ifz		count
+  652                     			.ifclear
+  653                     			.macexit
+  654                     			.endif
+  655                     	count:		.var		count-1
+  656                     			.byte		arg2,arg3,arg4,arg5
+  657                     			reserve	count,arg2,arg3,arg4,arg5
+  658                     			.macend
+  659  041A                 			reserve		10,ah,bh,ch,dh
+  660         000A        	count:		.var		10
+  661         [01]        			.ifz		count
+  662                     			.ifclear
+  663                     			.macexit
+  664         [00]        			.endif
+  665         0009        	count:		.var		count-1
+  666  041A     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  667  041E                 			reserve	count,ah,bh,ch,dh
+  668         0009        	count:		.var		count
+  669         [01]        			.ifz		count
+  670                     			.ifclear
+  671                     			.macexit
+  Tue Feb 28 15:23:06 2023                                                                                               Page   13
+
+
+
+
+  672         [00]        			.endif
+  673         0008        	count:		.var		count-1
+  674  041E     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  675  0422                 			reserve	count,ah,bh,ch,dh
+  676         0008        	count:		.var		count
+  677         [01]        			.ifz		count
+  678                     			.ifclear
+  679                     			.macexit
+  680         [00]        			.endif
+  681         0007        	count:		.var		count-1
+  682  0422     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  683  0426                 			reserve	count,ah,bh,ch,dh
+  684         0007        	count:		.var		count
+  685         [01]        			.ifz		count
+  686                     			.ifclear
+  687                     			.macexit
+  688         [00]        			.endif
+  689         0006        	count:		.var		count-1
+  690  0426     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  691  042A                 			reserve	count,ah,bh,ch,dh
+  692         0006        	count:		.var		count
+  693         [01]        			.ifz		count
+  694                     			.ifclear
+  695                     			.macexit
+  696         [00]        			.endif
+  697         0005        	count:		.var		count-1
+  698  042A     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  699  042E                 			reserve	count,ah,bh,ch,dh
+  700         0005        	count:		.var		count
+  701         [01]        			.ifz		count
+  702                     			.ifclear
+  703                     			.macexit
+  704         [00]        			.endif
+  705         0004        	count:		.var		count-1
+  706  042E     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  707  0432                 			reserve	count,ah,bh,ch,dh
+  708         0004        	count:		.var		count
+  709         [01]        			.ifz		count
+  710                     			.ifclear
+  711                     			.macexit
+  712         [00]        			.endif
+  713         0003        	count:		.var		count-1
+  714  0432     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  715  0436                 			reserve	count,ah,bh,ch,dh
+  716         0003        	count:		.var		count
+  717         [01]        			.ifz		count
+  718                     			.ifclear
+  719                     			.macexit
+  720         [00]        			.endif
+  721         0002        	count:		.var		count-1
+  722  0436     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  723  043A                 			reserve	count,ah,bh,ch,dh
+  724         0002        	count:		.var		count
+  725         [01]        			.ifz		count
+  726                     			.ifclear
+  727                     			.macexit
+  728         [00]        			.endif
+  Tue Feb 28 15:23:06 2023                                                                                               Page   14
+
+
+
+
+  729         0001        	count:		.var		count-1
+  730  043A     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  731  043E                 			reserve	count,ah,bh,ch,dh
+  732         0001        	count:		.var		count
+  733         [01]        			.ifz		count
+  734                     			.ifclear
+  735                     			.macexit
+  736         [00]        			.endif
+  737         0000        	count:		.var		count-1
+  738  043E     0A 0B 0C 0D 			.byte		ah,bh,ch,dh
+  739  0442                 			reserve	count,ah,bh,ch,dh
+  740         0000        	count:		.var		count
+  741         [01]        			.ifz		count
+  742         [00]        			.ifclear
+  743  0442     [00]        			.macexit
+  744  0442                 			.macend
+  745  0442                 			.macend
+  746  0442                 			.macend
+  747  0442                 			.macend
+  748  0442                 			.macend
+  749  0442                 			.macend
+  750  0442                 			.macend
+  751  0442                 			.macend
+  752  0442                 			.macend
+  753  0442                 			.macend
+  754                     	
+  755                     			.end
+  756                     	
+  757                     	
+  758                     			.END
+
+
+             Lines Assembled : 622                  Errors : 0
+
+
+

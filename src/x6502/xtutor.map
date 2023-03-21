@@ -1,0 +1,108 @@
+Assembler Listing Relocated : C:\WIDE\X6502\t6502.LST
+
+
+Filename : t6502.obj
+
+ADC                                00E8
+ADDRESS                            000A
+AND                                0121
+ASL                                02E5
+BCC                                0347
+BCS                                034D
+BEQ                                0353
+BIT                                015A
+BMI                                0359
+BNE                                035F
+BPL                                0365
+BRK                                03A4
+BVC                                036B
+BVS                                0371
+CLC                                03A6
+CLD                                03AA
+CLI                                039E
+CLV                                03AE
+CMP                                0169
+count                              0000
+CPX                                0289
+CPY                                0298
+DATA8                              00AB
+date_hired                         0409
+Date_hired                         03C5
+DD                                 00B2
+DEC                                026B
+department                         03F9
+Department                         03BD
+DEX                                038E
+DEY                                0390
+DSC0                               0001
+EOR                                01A2
+GETKY0                             03B3
+INC                                024D
+INX                                0392
+INY                                0394
+JMP                                0323
+JSR                                0377
+lab0006                            040E
+LABEL                              03B2
+label                              03B4
+label1                             001F
+LDA                                000A
+LDX                                0076
+LDY                                00AD
+LSR                                0304
+mac_value                          0001
+Month                              03B4
+name                               03C9
+Name                               03B5
+NOP                                03B0
+ORA                                01DB
+PHA                                0396
+PHP                                039A
+PLA                                0398
+PLP                                039C
+ROL                                02A7
+ROR                                02C6
+RTI                                03A2
+RTS                                0380
+SBC                                0214
+SEC                                03A8
+SED                                03AC
+SEI                                03A0
+STA                                0043
+STX                                009A
+STY                                00D1
+TAX                                0382
+TAY                                0386
+TSX                                038A
+TXA                                0384
+TXS                                038C
+TYA                                0388
+
+
+******************************************************************************
+*                      S E C T I O N      S U M M A R Y                      *
+******************************************************************************
+*    Section Name                  Start      End         Description        *
+******************************************************************************
+* CODE                              0000      0441                           *
+******************************************************************************
+
+
+******************************************************************************
+*                             L O A D      M A P                             *
+******************************************************************************
+*    Section Name              Starting Address    Ending Address    Size    *
+******************************************************************************
+* t6502.obj                                                                  *
+*    CODE                            0000               0441         0442    *
+******************************************************************************
+
+
+                  Linker Output Filename : xtutor.hex
+                  Disk Listing  Filename : xtutor.map
+                  Debug Control Filename : xtutor.dcf
+                  Symbol Table  Filename : xtutor.sym
+                                Format   : 2500 A.D. High Level
+
+
+         Link Errors :  0                Output Format :  Intel Hex

@@ -26,17 +26,17 @@ def gal(logic: np.ndarray, inputs: np.ndarray):
     ors = np.any(ands[:, 1:], axis=1)
     invs = np.invert(ors[ands[:, 0]])
 
-    console.print('Inputs')
-    print_blocks(ins)
-
-    console.print('Gate Logic')
-    print_blocks(logic)
-
-    console.print('Gate Array')
-    print_blocks(gal)
-
-    console.print('Outputs')
-    console.print(invs.astype(int))
+    # console.print('Inputs')
+    # print_blocks(ins)
+    #
+    # console.print('Gate Logic')
+    # print_blocks(logic)
+    #
+    # console.print('Gate Array')
+    # print_blocks(gal)
+    #
+    # console.print('Outputs')
+    # console.print(invs.astype(int))
 
     return invs
 

@@ -1,0 +1,85 @@
+  Tue Feb 28 15:23:06 2023                                                                                               Page    1
+
+
+
+
+
+
+
+          2500 A.D. 6502 Macro Assembler #26918 - Version 5.05g
+          -----------------------------------------------------
+
+                       Input  Filename : C:\WIDE\X6502\eeprom.asm
+                       Output Filename : C:\WIDE\X6502\eeprom.obj
+
+
+    1                     				; NAME: mpu.asm
+    2  0000                 				
+    3                     				; Edited for ADX65
+    4                     	
+    5                     				; This program tests the MPU, EPROM, and DISPLAY 
+    6                     	
+    7                     				; The program loops while putting a number out to DISPLAY
+    8                     	
+    9                     				; The DISPLAY counts up in hexadecimal
+   10                     	
+   11                     				;
+   12                     	
+   13  E000                 		org $e000	; NOTE we use $e000 as the base address of the 27C64
+   14                     	
+   15                     				; DON'T FORGET TO USE E000 AS THE BASE ADDRESS ON THE EMP-20
+   16                     	
+   17                     				;
+   18                     	
+   19  E000     78          	init	sei		; turn off interupts
+   20                     	
+   21  E001     D8          		cld		; set CPU to the binary mode
+   22                     	
+   23  E002     A2 FF       		ldx #$ff	;
+   24                     	
+   25  E004     9A          		txs		; load the stack pointer with $ff
+   26                     	
+   27  E005     A9 00       		lda #$00	; set accumulator to 0
+   28                     	
+   29                     				;
+   30                     	
+   31  E007     8D 00 40    	loop	sta $4000	; send accumulator to TIL display
+   32                     	
+   33                     				;
+   34                     	
+   35  E00A     E8          	delay	inx		; kill time (0.25 second)
+   36                     	
+   37  E00B     D0 FD       		bne delay
+   38                     	
+   39  E00D     C8          		iny
+   40                     	
+   41  E00E     D0 FA       		bne delay
+   42                     	
+   43                     				;
+   44                     	
+   45  E010     18          		clc
+   46                     	
+   47  E011     69 01       		adc #$01	; add 1 to the accumulator
+  Tue Feb 28 15:23:06 2023                                                                                               Page    2
+
+
+
+
+   48                     	
+   49                     				;
+   50                     	
+   51  E013     4C 07 E0    		jmp loop	; repeat
+   52                     	
+   53                     				;
+   54                     	
+   55  FFFC                 		org $fffc	; restart vector
+   56                     	
+   57  FFFC     00E0        		dw init
+   58                     	
+   59  FFFE                 		end
+
+
+             Lines Assembled : 59                  Errors : 0
+
+
+

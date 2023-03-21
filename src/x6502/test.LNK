@@ -1,0 +1,13 @@
+
+* X6502 Xtutor Link File
+
+version 12/5/96                          * user defined version #
+
+options : map, high level, Intel hex    * load map, high level output, hex out
+
+input   : t6502                          * Input File
+
+output  : xtutor                         * Output File
+
+locate  : CODE at 0000h                  * CODE Link Address
+locate  : PAGE0 at 0000h                 * PAGE0 Link Address
